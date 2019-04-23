@@ -1,0 +1,54 @@
+import java.util.Arrays;
+
+public class Books {
+    Book[] books = {
+    };
+
+    public Books(int size) {
+        Book[] books = new Book[size];
+    }
+
+    public void addBook(Book i) {
+        books = Arrays.copyOf(books, books.length + 1);
+        books[books.length - 1] = i;
+    }
+
+    public void printBooks() {
+        if (books.length == 0) {
+            System.out.println("Книг нет");
+        }
+        for (Book instance: books) {
+            instance.viewBook();
+        }
+    }
+
+    public void changePrice(int percent) {
+        double price;
+        for (Book instance: books) {
+            price = instance.getPrice();
+            price = price - price * percent / 100.0;
+            instance.setPrice(price);
+        }
+    }
+
+    public Books searchByAuthor(String author) {
+        Books newBooks = new Books(0);
+        for (Book instance: books) {
+            if (author.equals(instance.getAuthor())) {
+                newBooks.addBook(instance);
+
+            }
+        }
+        return newBooks;
+    }
+
+    public Books searchByYear(int yearOfPublication) {
+        Books newBooks = new Books(0);
+        for (Book instance: books) {
+            if (instance.getYearOfPublication() > yearOfPublication) {
+                newBooks.addBook(instance);
+            }
+        }
+        return newBooks;
+    }
+}
