@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int size = 5;
+        Books books = new Books(size);
+
+        Book[] library = {
+                new Book(1, "Код Да Винчи", "Ден Браун", "Клуб", 2003, 408, 95),
+                new Book(2, "Алмазная колесница", "Борис Акунин", "Эксмо", 2003, 760, 264),
+                new Book(3, "Эдгар Аллан По. Полное собрание рассказов в одном томе", "Эдгар Аллан По", "Эксмо", 2011, 864, 362),
+                new Book(4, "Затерянный мир", "Конан Дойл", "Нигма", 2014, 265, 502),
+                new Book(5, "Тайна отца Брауна", "Честертон", "Азбука", 2014, 480, 63),
+        };
+        for (Book instance: library) {
+            books.addBook(instance);
+        }
+
+        books.printBooks();
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Введите процент скидки: ");
+        int percent = Integer.parseInt(sc.nextLine());
+        books.changePrice(percent);
+        System.out.println("Цена книг с учётом скидки");
+        books.printBooks();
+
+        System.out.print("Введите имя автора: ");
+        String author = sc.nextLine();
+        Books booksAuthor = books.searchByAuthor(author);
+        booksAuthor.printBooks();
+
+
+        System.out.print("Введите год издания книги: ");
+        int year = Integer.parseInt(sc.nextLine());
+        Books booksYear = books.searchByYear(year);
+        booksYear.printBooks();
+    }
+}
