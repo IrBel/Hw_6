@@ -1,0 +1,99 @@
+public class Book {
+    private int id;
+    private static int nextId;
+    private String nameBook;
+    private String author;
+    private String publisher;
+    private int yearOfPublication;
+    private int countPage;
+    private double price;
+
+    public Book () {
+        this.id = nextId++;
+    }
+
+    public Book(int id, String nameBook, String author, String publisher, int yearOfPublication, int countPage, double price) {
+        this();
+        this.id = id;
+        this.nameBook = nameBook;
+        this.author = author;
+        this.publisher = publisher;
+        this.yearOfPublication = yearOfPublication;
+        this.countPage = countPage;
+        this.price = price;
+    }
+
+    public void viewBook() {
+        System.out.println("ID: " + this.getId()
+                + "; Название книги: " + this.getNameBook()
+                + "; Автор: " + this.getAuthor()
+                + "; Издательство: " + this.getPublisher()
+                + "; Год издания: " + this.getYearOfPublication()
+                + "; Количество страниц: " + this.getCountPage()
+                + "; Цена: " + this.getPrice());
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Book.nextId = nextId;
+    }
+
+    public String getNameBook() {
+        return nameBook;
+    }
+
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getYearOfPublication() {
+        return yearOfPublication;
+    }
+
+    public void setYearOfPublication(int yearOfPublication) {
+        this.yearOfPublication = yearOfPublication;
+    }
+
+    public int getCountPage() {
+        return countPage;
+    }
+
+    public void setCountPage(int countPage) {
+        this.countPage = countPage;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}
